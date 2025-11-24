@@ -80,15 +80,25 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
+    background-color: #0d1520;
 }
 
 header {
-    width: 100%;
     padding: 1rem;
-    background-color: #0d1520;
+    margin: 0 auto;
     color: white;
+    position: sticky;
+    top: 0;
+}
+
+.headerflex {
+    margin-left: 2rem;
     display: flex;
+    padding: 1rem 3rem 1rem 3rem;
+    border-radius: 28px;
     justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
 }
 
 footer {
@@ -149,4 +159,12 @@ section {
 .section-one {
     color: white;
     background-color: #0d1520;
+}
+
+.section-two {
+    background-color: white;
+}
+
+.section-four {
+    background-color: white;
 }
