@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let test = "background-color";
+
+        function camelize(inputString) {    
+            let splitString = inputString.split("-");
+            let buildString = splitString[0].toLowerCase();
+            for (let i = 1; i < splitString.length; i++) {
+                let element = splitString[i];
+                buildString += element.slice(0, 1).toUpperCase() + element.slice(1, element.length);
+            }
+            return buildString;
+        }
+
+        let arr = [5, 3, 8, 1];
+
+        function filterRange (arr, a, b) {
+            let newArray = [];
+            arr.forEach(element => {
+                if (element >= a && element <= b) {
+                    newArray.push(element)
+                }
+            });
+            return newArray;
+        }
+
+         let filtered = filterRange(arr, 1, 4);
+
+        function filterRangeInPlace(arr, a, b) {
+
+            for (let index = 0; index < arr.length; index++) {
+                const element = arr[index];
+                if (element >= a && element <=b) {
+                    console.log(element)
+                    continue;
+                } else {
+                    console.log(element)
+                    arr.splice(index, 1);
+                    index--;
+                }
+            }
+        }
+
+        filterRangeInPlace(arr, 2, 5);
+        console.log(arr);
+
+        let decreaseArray = [5, 2 , 1, -10, 8];
+
+        decreaseArray.sort((a, b) => b - a);
+
+        console.log(decreaseArray);
+
+
+
+        let sortAndCopyArr = ["HTML", "JavaScript", "CSS"];
+
+        function copySorted(arr) {
+            return arr.slice().sort();
+        }
+
+        let sorted = copySorted(sortAndCopyArr);
+
+        console.log(sorted);
+
+        let shuffleThisArray = [1, 2, 3];
+
+        function arrayShuffler(arr) {
+            for (let i = 0; i < arr.length; i++) {
+            let randomSwapIndex = Math.floor(Math.random() * arr.length);
+                if (randomSwapIndex !== i) {
+                    let savedElement = arr[i];
+                    let swappedElement = arr[randomSwapIndex];
+                    arr[i] = swappedElement;
+                    arr[randomSwapIndex] = savedElement;
+                }
+            }
+            
+        }
+
+        let count = {
+  '123': 0,
+  '132': 0,
+  '213': 0,
+  '231': 0,
+  '321': 0,
+  '312': 0
+};
+
+for (let i = 0; i < 1000000; i++) {
+  let array = [1, 2, 3];
+  arrayShuffler(array);
+  count[array.join('')]++;
+}
+
+// show counts of all possible permutations
+for (let key in count) {
+  console.log(`${key}: ${count[key]}`);
+}
+
+
+
+
+
+        console.log(filtered)
+        console.log(camelize(test));
+
+       function unique(arr) {
+    let object = {};
+
+    // 1. Correctly Count String Occurrences
+    arr.forEach(element => {
+        // Use BRACKET NOTATION to use the value of 'element' as the key
+        if (object[element]) { 
+            object[element]++; // Found it before, increment count
+        } else {
+            object[element] = 1; // First time seeing it, set count to 1
+        }
+    });
+
+    let uniqueArr = [];
+
+
+    for (const key in object) {
+        uniqueArr.push(key)
+    }
+    
+    return uniqueArr; 
+}
+
+        let strings = ["Hare", "Krishna", "Hare", "Krishna",
+        "Krishna", "Krishna", "Hare", "Hare", ":-O"
+        ];
+
+        console.log(unique(strings));
+    </script>
+</body>
+</html>
