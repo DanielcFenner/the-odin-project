@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+:root {
+
+	--iris-1: #fdfdff;
+	--iris-2: #f8f8ff;
+	--iris-3: #f0f1fe;
+	--iris-4: #e6e7ff;
+	--iris-5: #dadcff;
+	--iris-6: #cbcdff;
+	--iris-7: #b8baf8;
+	--iris-8: #9b9ef0;
+	--iris-9: #5b5bd6;
+	--iris-10: #5151cd;
+	--iris-11: #5753c6;
+	--iris-12: #272962;
+    --font-family: 'Cal Sans', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --iris-1: #1c1c2e;
+        --iris-2: #23233f;
+        --iris-3: #2b2b4f;
+        --iris-4: #34345f;
+        --iris-5: #3e3e70;
+        --iris-6: #494980;
+        --iris-7: #555590;
+        --iris-8: #6363a3;
+        --iris-9: #7d7db8;
+        --iris-10: #8f8fc4;
+        --iris-11: #a2a2d1;
+        --iris-12: #d4d4e8;
+    }
+}
+
+body {
+    background-color: var(--iris-1);
+    color: var(--iris-12);
+    font-family: var(--font-family);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--iris-3);
+    background: linear-gradient(145deg, var(--iris-3), var(--iris-2));
+    padding: 1rem;
+    border-radius: 28px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    border-top: 1px solid var(--iris-11);
+    border-bottom: 1px solid var(--iris-5);
+}
+
+.screen {
+    background-color: var(--iris-1);
+    border: 2px solid var(--iris-6);
+    border-bottom: 2px solid var(--iris-8);
+    border-radius: 16px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    min-height: 100px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.buttons {
+    font-size: 1.75rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+}
+
+.buttons div {
+    border-top: 1px solid var(--iris-11);
+    border-bottom: 1px solid var(--iris-5);
+    background: linear-gradient(145deg, var(--iris-6), var(--iris-4));
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons div:hover {
+        background: linear-gradient(145deg, var(--iris-8), var(--iris-6));
+
+}
+
+.title  {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    color: var(--iris-10)
+}
