@@ -5,9 +5,12 @@ html {
 }
 
 .container {
+  display: grid;
+  grid-template: 1fr 1fr 4fr 1fr/ 1fr 4fr;
   text-align: center;
   height: 100%;
   padding: 16px;
+  gap: 16px;
   box-sizing: border-box;
 }
 
@@ -21,10 +24,12 @@ html {
 }
 
 .header {
+  grid-area: 1 / 1 / 2 / 3;
   background-color: #006157;
 }
 
 .sidebar {
+  grid-area: 2 / 1 / 4 / 2;
   background-color: #005B94;
 }
 
@@ -37,6 +42,7 @@ html {
 }
 
 .footer {
+  grid-area: 4 / 1 / 5 / 3;
   background-color: #393f4d;
 }
 
