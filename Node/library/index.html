@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="signature">
+      by <a href="https://www.danielfenner.com">@danielfennerdev</a>
+    </div>
+
+    <div class="container">
+      <h1>My Library</h1>
+      <button id="add-book-button">Add A Book?</button>
+      <dialog id="add-book-modal">
+        <form id="add-book-form" method="dialog">
+          <h4>Add a New Book</h4>
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required />
+
+          <label for="author">Author:</label>
+          <input type="text" id="author" name="author" required />
+
+          <label for="pages">Number of Pages:</label>
+          <input type="number" id="pages" name="pages" min="1" required />
+          <label for="read-status">Have you read it?</label>
+          <div id="radio-buttons">
+            <input type="radio" id="read-yes" name="read-status" value="yes" />
+            <label for="read-yes">Yes</label>
+            <input
+              type="radio"
+              id="read-no"
+              name="read-status"
+              value="no"
+              checked
+            />
+            <label for="read-no">No</label>
+          </div>
+
+          <div class="form-buttons">
+            <button type="submit">Add Book</button>
+            <button type="button" id="cancel-button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
+              `
+            </button>
+          </div>
+        </form>
+      </dialog>
+      <div id="books-grid" class="books-grid"></div>
+    </div>
+  </body>
+</html>

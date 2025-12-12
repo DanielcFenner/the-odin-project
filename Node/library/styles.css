@@ -1,0 +1,390 @@
+:root {
+  --brown-1: #fefdfc;
+  --brown-2: #fcf9f6;
+  --brown-3: #f6eee7;
+  --brown-4: #f0e4d9;
+  --brown-5: #ebdaca;
+  --brown-6: #e4cdb7;
+  --brown-7: #dcbc9f;
+  --brown-8: #cea37e;
+  --brown-9: #ad7f58;
+  --brown-10: #a07553;
+  --brown-11: #815e46;
+  --brown-12: #3e332e;
+  --text: #fefdfc;
+  --good: #29a383;
+  --bad: #e54d2e;
+  --highlight: #fefdfc;
+  --bottom-bevel: var(--brown-6);
+
+  font-size: 17px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Manrope", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: var(--brown-1);
+  background-position: 6px center;
+  background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='50' height='33.333' patternTransform='scale(3) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%23fefdfcff'/><path d='M25 .806v2.79h.8V.806Zm0 4.465v2.791h.8v-2.79Zm-2.043 3.902-2.32 1.55.444.665 2.32-1.55-.443-.665zm4.885 0-.444.665 2.32 1.55.445-.665zM-.4 10.61v2.79h.8v-2.79zm50 0v2.79h.8v-2.79zm-30.356 1.042-2.32 1.55.443.666 2.322-1.55-.444-.666zm12.311 0-.444.665 2.32 1.55.445-.664zm3.783 2.566-.444.666 2.321 1.55.444-.666zm-19.852.025-2.32 1.55.444.665 2.32-1.55zm-15.886.77v2.79h.8v-2.79Zm50 0v2.79h.8v-2.79Zm-50 4.465v2.79h.8v-2.79h-.8Zm50 0v2.79h.8v-2.79h-.8zM2.442 23.379l-.444.665 2.32 1.55.445-.665zm45.115 0-2.32 1.55.443.666 2.322-1.55-.444-.666zM6.155 25.86l-.444.665 2.32 1.55.445-.665zm37.69 0-2.322 1.55.444.665 2.321-1.55-.444-.666zM9.937 28.424l-.444.665 2.32 1.55.445-.665-2.321-1.55zm30.11.003-2.321 1.55.444.666 2.321-1.55zM25 29.737v2.79h.8v-2.79z'  stroke-width='1' stroke='none' fill='%23f6eee7ff'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+  color: var(--brown-12);
+  display: flex;
+  justify-content: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Cal Sans", sans-serif;
+  line-height: 1.1; /* Tighter line-height is typical for headings */
+  margin-bottom: 0.5rem;
+  font-weight: 700; /* Assuming a bold weight for the title font */
+}
+
+h1 {
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+h3 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+h4 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h5 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+}
+
+h6 {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+}
+
+#add-book-button {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: var(--brown-9);
+  background: linear-gradient(var(--brown-9), var(--brown-10));
+  color: var(--text);
+  border-radius: 28px;
+  font-size: inherit;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  transform: translateY(0);
+  transform: scale(1);
+}
+
+#add-book-button:hover {
+  transform: scale(1.1);
+  background-color: var(--brown-12);
+  background: linear-gradient(var(--brown-10), var(--brown-11));
+
+  transform: scale(1.5), translateY(-3px);
+
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15), 0 20px 25px rgba(0, 0, 0, 0.08);
+}
+
+.container {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1020px;
+  padding: 0rem 1rem 3rem 1rem;
+}
+
+#books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.book-card {
+  position: relative;
+  box-shadow: inset 0px 0px 20px 20px #000000;
+
+  padding: 1rem;
+  border-radius: 28px;
+  background: linear-gradient(var(--brown-2), var(--brown-3));
+  border-top: 2px solid var(--highlight);
+  border-bottom: 2px solid var(--bottom-bevel);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transform: scale(1);
+}
+
+.book-card:hover {
+  transform: scale(1.03);
+
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15), 0 20px 25px rgba(0, 0, 0, 0.08);
+}
+
+.remove-book-button {
+  background: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 0.25rem 0.4rem 0.25rem 0.25rem;
+  cursor: pointer;
+  border: none;
+  color: var(--text);
+  font-size: inherit;
+}
+
+.remove-book-button:hover {
+  background-color: var(rgba(black, 0.01)) !important;
+}
+svg {
+  color: var(--brown-12);
+  width: 1.5rem;
+  height: auto;
+}
+
+.book-read-true {
+  font-size: 15px;
+  padding: 0.25rem 0.5rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  border: none;
+  background-color: var(--good);
+  color: var(--text);
+  border-radius: 28px;
+  transition: all 0.3s ease;
+}
+
+.book-read-false {
+  font-size: 15px;
+  padding: 0.25rem 0.5rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  border: none;
+  background-color: var(--bad);
+  color: var(--text);
+  border-radius: 28px;
+  transition: all 0.3s ease;
+}
+
+.book-cover {
+  height: 130px;
+  width: auto;
+  border-radius: 11px;
+}
+
+dialog {
+  width: min(90vw, 400px);
+  background-color: var(--brown-1);
+  color: var(--brown-12);
+  border: none;
+  background: linear-gradient(var(--brown-2), var(--brown-3));
+  border-top: 2px solid var(--highlight);
+  border-bottom: 2px solid var(--bottom-bevel);
+
+  position: fixed;
+  margin: auto;
+  border-radius: 28px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 15px rgba(0, 0, 0, 0.05);
+}
+
+dialog::backdrop {
+  backdrop-filter: blur(10px);
+}
+
+/* modal entry and exit animations */
+
+@keyframes dialog-show {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes dialog-backdrop-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+dialog[open] {
+  animation: dialog-show 0.3s ease-out;
+}
+
+dialog::backdrop {
+  animation: dialog-backdrop-show 0.3s ease-out;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-weight: 600;
+}
+
+input,
+textarea {
+  padding: 0.5rem;
+  border: 2px solid var(--brown-5);
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--brown-9);
+  box-shadow: 0 0 5px var(--brown-9);
+}
+
+#radio-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+input[type="radio"] {
+  width: auto;
+}
+
+#read-no {
+  margin-left: 1rem;
+}
+
+button[type="submit"] {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: var(--brown-9);
+  background: linear-gradient(var(--brown-9), var(--brown-10));
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 15px rgba(0, 0, 0, 0.05);
+
+  color: var(--text);
+  border-radius: 28px;
+  font-size: inherit;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  translate: scale(1);
+}
+
+button[type="submit"]:hover {
+  transform: scale(1.1);
+  background-color: var(--brown-12);
+  background: linear-gradient(var(--brown-10), var(--brown-11));
+
+  transform: scale(1.5), translateY(-3px);
+
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15), 0 20px 25px rgba(0, 0, 0, 0.08);
+}
+
+#cancel-button {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.signature {
+  font-size: 12px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+.signature a {
+  font-family: "Cal Sans", sans-serif;
+  color: var(--brown-12);
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  color: var(--brown-12);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='50' height='33.333' patternTransform='scale(3) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%2312110fff'/><path d='M25 .806v2.79h.8V.806Zm0 4.465v2.791h.8v-2.79Zm-2.043 3.902-2.32 1.55.444.665 2.32-1.55-.443-.665zm4.885 0-.444.665 2.32 1.55.445-.665zM-.4 10.61v2.79h.8v-2.79zm50 0v2.79h.8v-2.79zm-30.356 1.042-2.32 1.55.443.666 2.322-1.55-.444-.666zm12.311 0-.444.665 2.32 1.55.445-.664zm3.783 2.566-.444.666 2.321 1.55.444-.666zm-19.852.025-2.32 1.55.444.665 2.32-1.55zm-15.886.77v2.79h.8v-2.79Zm50 0v2.79h.8v-2.79Zm-50 4.465v2.79h.8v-2.79h-.8Zm50 0v2.79h.8v-2.79h-.8zM2.442 23.379l-.444.665 2.32 1.55.445-.665zm45.115 0-2.32 1.55.443.666 2.322-1.55-.444-.666zM6.155 25.86l-.444.665 2.32 1.55.445-.665zm37.69 0-2.322 1.55.444.665 2.321-1.55-.444-.666zM9.937 28.424l-.444.665 2.32 1.55.445-.665-2.321-1.55zm30.11.003-2.321 1.55.444.666 2.321-1.55zM25 29.737v2.79h.8v-2.79z'  stroke-width='1' stroke='none' fill='%2328211dff'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+  }
+  :root {
+    --highlight: var(--brown-8);
+    --bottom-bevel: var(--brown-4);
+  }
+  :root {
+    --brown-1: #12110f;
+    --brown-2: #1c1816;
+    --brown-3: #28211d;
+    --brown-4: #322922;
+    --brown-5: #3e3128;
+    --brown-6: #4d3c2f;
+    --brown-7: #614a39;
+    --brown-8: #7c5f46;
+    --brown-9: #ad7f58;
+    --brown-10: #b88c67;
+    --brown-11: #dbb594;
+    --brown-12: #f2e1ca;
+  }
+  .book-card {
+    background: linear-gradient(var(--brown-3), var(--brown-2));
+    border-top: 1px solid var(--highlight);
+    border-bottom: 1px solid var(--bottom-bevel);
+  }
+  dialog {
+    background: linear-gradient(var(--brown-3), var(--brown-2));
+    border-top: 1px solid var(--highlight);
+    border-bottom: 1px solid var(--bottom-bevel);
+  }
+  #add-book-button {
+    background: linear-gradient(var(--brown-9), var(--brown-8));
+  }
+  #add-book-button:hover {
+    background: linear-gradient(var(--brown-10), var(--brown-8));
+  }
+  button[type="submit"] {
+    background: linear-gradient(var(--brown-9), var(--brown-8));
+  }
+  button[type="submit"]:hover {
+    background: linear-gradient(var(--brown-10), var(--brown-8));
+  }
+}
