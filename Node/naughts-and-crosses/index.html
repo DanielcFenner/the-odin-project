@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <title>Naughts And Crosses by @danielfennerdev</title>
+  </head>
+  <body>
+    <div class="signature">
+      by <a href="https://www.danielfenner.com">@danielfennerdev</a>
+    </div>
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal">
+        <h2 id="modalStatus">You Won!</h2>
+        <p>Great work, gamer.</p>
+        <button class="btn-primary" id="resetBtn">Go again?</button>
+      </div>
+    </div>
+    <div class="container">
+      <div class="grid">
+        <div class="cell" data-index="0">
+          <span></span>
+        </div>
+        <div class="cell" data-index="1"><span>O</span></div>
+        <div class="cell" data-index="2"><span>X</span></div>
+        <div class="cell" data-index="3"><span></span></div>
+        <div class="cell" data-index="4"><span>X</span></div>
+        <div class="cell" data-index="5"><span></span></div>
+        <div class="cell" data-index="6"><span>O</span></div>
+        <div class="cell" data-index="7"><span></span></div>
+        <div class="cell" data-index="8"><span></span></div>
+      </div>
+    </div>
+  </body>
+</html>

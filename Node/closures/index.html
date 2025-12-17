@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function outer() {
+        const outerVar = "Hey I'm the outer var";
+
+        function inner() {
+          const innerVar = "Hey I'm the inner var";
+          console.log(outerVar);
+          console.log(innerVar);
+        }
+        return inner;
+      }
+      const innerFn = outer();
+      innerFn();
+
+      // real example
+      // its a closure because we run main variable "closing it" but we can still access it's variables
+
+      function createGreeting(greeting = "") {
+        const myGreet = greeting.toUpperCase();
+
+        return function (name) {
+          return `${myGreet} ${name}`;
+        };
+      }
+
+      const sayHello = createGreeting("hello");
+      const sayHi = createGreeting("hi");
+
+      console.log(sayHello("George"));
+      console.log(sayHi("George"));
+      console.log(sayHello("Bob"));
+      console.log(sayHi("Bob"));
+    </script>
+  </body>
+</html>
