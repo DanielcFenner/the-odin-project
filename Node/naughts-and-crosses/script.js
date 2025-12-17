@@ -13,13 +13,13 @@ function game() {
 
   const playTurn = (index) => {
     if (isOver || board[index] !== "") {
-      return false; // Invalid move
+      return false;
     }
     board[index] = currentPlayer;
     checkWinner();
     checkTie();
     if (!isOver) switchPlayer();
-    return true; // Valid move
+    return true;
   };
 
   let getBoard = () => {
